@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="flex justify-between items-center p-4 md:p-7 bg-[#00000003] rounded-b-4xl">
       {/* Logo */}
       <div>
-        <h1 className="text-2xl md:text-4xl font-bold">DEVELOP.ME</h1>
+        <h1 className="text-2xl md:text-4xl font-bold">DEVLOP.ME</h1>
       </div>
 
       {/* Desktop Navigation */}

@@ -91,7 +91,7 @@ const Slider = ({fontReg, fontBold}) => {
   };
 
   return (
-    <div className="relative bg-black py-10 px-8 overflow-hidden">
+    <div className="relative bg-black py-10 overflow-hidden">
       <div className="flex justify-between items-center mb-6">
         <h2 className=" text-black">.</h2>
         <div className="flex gap-4">
