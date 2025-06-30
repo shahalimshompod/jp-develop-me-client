@@ -1,18 +1,31 @@
 "use client";
 import React from 'react';
+import { GoArrowRight } from "react-icons/go";
+import { FaPhone } from "react-icons/fa6";
+import { IoIosSend } from "react-icons/io";
+import { IoMdMail } from "react-icons/io";
 
 const Button = ({children, name}) => {
-  console.log(name);
   return (
-    <button onClick={() => console.log("button clicked")} className="group relative flex items-center px-6 py-3 border border-black rounded-full overflow-hidden min-w-[220px] transition-colors duration-500 bg-white hover:bg-black cursor-pointer">
+    <button className={`group relative flex items-center px-6 py-3 border rounded-full overflow-hidden transition-colors duration-500 bg-transparent hover:bg-black cursor-pointer ${name === "send" || name === "contact me" ? "border-white" : "border-black"}`}>
       {/* Text */}
-      <span className="text-black font-semibold text-lg transition-all duration-500 ml-10 group-hover:translate-x-[-1.5rem] group-hover:text-white">
+      <span className={`font-semibold text-lg transition-all duration-500 ml-10 group-hover:translate-x-[-1.5rem] group-hover:text-white ${name === "send" || name === "contact me" ? "text-white" : "text-black"}`}>
         {children}
       </span>
 
       {/* Circle */}
-      <span className="absolute left-0 flex h-10 w-10 items-center justify-center border border-black rounded-full bg-white text-black transition-all duration-500 group-hover:left-[calc(100%-3rem)]">
-        {/* Icon jodi thake ekhane */}
+      <span className={`absolute left-0 flex h-10 w-10 items-center justify-center border rounded-full transition-all duration-500 group-hover:left-[calc(100%-3rem)] ${name === "send" || name === "contact me" ? "text-white border-white bg-white" : "text-black border-black bg-transparent"}`}>
+        {
+          name === "start-project" ? (
+            <GoArrowRight className="text-black group-hover:text-white transition-colors duration-500" />
+          ) : name === "call" ? (
+            <FaPhone className={name === "send" || name === "contact me" ? "text-black" : "text-black group-hover:text-white transition-colors duration-500"} />
+          ) : name === "contact me" ? (
+            <IoMdMail className="text-black" />
+          ) : name === "send" && (
+            <IoIosSend className="text-black" />
+          )
+        }
       </span>
     </button>
   );

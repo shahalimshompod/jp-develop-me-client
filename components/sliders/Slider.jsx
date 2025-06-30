@@ -2,37 +2,98 @@
 import React from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { useRef } from "react";
+import SliderCard from "../cards/SliderCard";
+import react from "../../public/assets/react.png"
+import node from "../../public/assets/node.png"
+import express from "../../public/assets/express.png"
+import mongodb from "../../public/assets/mongodb.png"
+import next from "../../public/assets/next.png"
+import html from "../../public/assets/html.png"
+import css from "../../public/assets/css.png"
+import jwt from "../../public/assets/jwt.png"
+import firebase from "../../public/assets/firebase.png"
+import tailwind from "../../public/assets/tailwind.png"
+import js from "../../public/assets/js.png"
+import npm from "../../public/assets/npm.png"
 
 const cards = [
   {
-    title: "HTML & CSS",
-    description: "Duis aute irure dolor in reprehenderit in voluptate. Ut enim ad minim veniam, quis",
+    title: "HTML",
+    description: "Markup language for creating web page structure and content.",
+    image: html,
   },
   {
-    title: "Javascript",
-    description: "Duis aute irure dolor in reprehenderit in voluptate. Ut enim ad minim veniam, quis",
+    title: "CSS",
+    description: "Stylesheet language used to design the appearance of HTML content.",
+    image: css,
   },
   {
-    title: "Webflow",
-    description: "Duis aute irure dolor in reprehenderit in voluptate. Ut enim ad minim veniam, quis",
+    title: "JavaScript",
+    description: "Programming language used to make web pages interactive.",
+    image: js,
+  },
+  {
+    title: "React",
+    description: "JavaScript library for building user interfaces using components.",
+    image: react,
+  },
+  {
+    title: "Node.js",
+    description: "JavaScript runtime environment for running JS on the server.",
+    image: node,
+  },
+  {
+    title: "Express.js",
+    description: "Minimal and flexible Node.js web application framework.",
+    image: express,
+  },
+  {
+    title: "MongoDB",
+    description: "NoSQL database program using JSON-like documents.",
+    image: mongodb,
+  },
+  {
+    title: "Next.js",
+    description: "React framework for production with SSR, routing, and more.",
+    image: next,
+  },
+  {
+    title: "Tailwind CSS",
+    description: "Utility-first CSS framework for rapidly building custom designs.",
+    image: tailwind,
+  },
+  {
+    title: "JWT",
+    description: "A compact token format used for secure authentication and information exchange.",
+    image: jwt,
+  },
+  {
+    title: "Firebase",
+    description: "Platform by Google offering backend services like auth, DB, storage, etc.",
+    image: firebase,
+  },
+  {
+    title: "NPM",
+    description: "Node package manager to install and manage JavaScript packages.",
+    image: npm,
   },
 ];
 
-const TechSlider = () => {
+const Slider = () => {
   const sliderRef = useRef();
 
   const scroll = (direction) => {
     if (direction === "left") {
-      sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      sliderRef.current.scrollBy({ left: -500, behavior: "smooth" });
     } else {
-      sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      sliderRef.current.scrollBy({ left: 500, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="relative bg-black py-16 px-8 overflow-hidden">
+    <div className="relative bg-black py-10 px-8 overflow-hidden">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-white">Technologies</h2>
+        <h2 className=" text-black">.</h2>
         <div className="flex gap-4">
           <button
             onClick={() => scroll("left")}
@@ -51,27 +112,12 @@ const TechSlider = () => {
 
       <div
         ref={sliderRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide py-14"
+        className="flex gap-3 overflow-x-auto scroll-smooth scrollbar-hide py-14"
       >
-        {cards.map((card, idx) => (
-          <div
-            key={idx}
-            className="min-w-[300px] bg-[#1a1a1a] text-white rounded-3xl p-6 flex-shrink-0 hover:rotate-[-2deg] transition-transform duration-300"
-          >
-            <div className="mb-4">
-              <img
-                src="/icons/react-icon.svg"
-                alt="icon"
-                className="h-10 w-10 mx-auto"
-              />
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-center">{card.title}</h3>
-            <p className="text-sm text-gray-300 text-center">{card.description}</p>
-          </div>
-        ))}
+        {cards.map((card, idx) => <SliderCard key={idx} data={card}/>)}
       </div>
     </div>
   );
 };
 
-export default TechSlider;
+export default Slider;
