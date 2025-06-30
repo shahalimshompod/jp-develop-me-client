@@ -1,6 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import Button from "../buttons/Button";
+import localFont from "next/font/local";
+
+// using local fonts
+  const fontReg = localFont({
+    src: "../../public/fonts/SportingGrotesque-Regular.otf",
+  });
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +26,7 @@ const Navbar = () => {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-10">
         <div>
-          <ul className="list-none flex gap-6">
+          <ul className={`list-none flex gap-6 ${fontReg.className}`}>
             <li className="hover:text-gray-600 cursor-pointer transition-colors">Home</li>
             <li className="hover:text-gray-600 cursor-pointer transition-colors">About</li>
             <li className="hover:text-gray-600 cursor-pointer transition-colors">Portfolio</li>
@@ -53,7 +60,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg z-50 p-4">
-          <ul className="list-none flex flex-col gap-4">
+          <ul className={`list-none flex flex-col gap-4 ${fontReg.className}`}>
             <li className="hover:text-gray-600 cursor-pointer transition-colors py-2">Home</li>
             <li className="hover:text-gray-600 cursor-pointer transition-colors py-2">About</li>
             <li className="hover:text-gray-600 cursor-pointer transition-colors py-2">Portfolio</li>

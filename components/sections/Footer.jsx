@@ -1,3 +1,14 @@
+import localFont from "next/font/local";
+
+// using local fonts
+const fontBold = localFont({
+  src: "../../public/fonts/SportingGrotesque-Bold.otf",
+});
+
+const fontReg = localFont({
+  src: "../../public/fonts/SportingGrotesque-Regular.otf",
+});
+
 const Footer = () => {
   return (
     <footer className="bg-black text-white px-6 md:px-20 py-16 rounded-t-[40px]">
@@ -12,13 +23,13 @@ const Footer = () => {
         {/* Footer Grid */}
         <div className="flex flex-col items-start">
           <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-              As you <span className="text-white font-normal">can</span>
+            <h1 className={`text-5xl md:text-6xl font-bold text-white leading-tight ${fontBold.className}`}>
+              As you can
             </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="flex flex-col items-start gap-10">
+            <div className={`flex flex-col items-start gap-10 ${fontReg.className}`}>
               {/* Say hello */}
               <div className="space-y-2">
                 <p className="text-gray-400 font-medium">Say hello</p>
@@ -35,7 +46,7 @@ const Footer = () => {
             </div>
 
             {/* Menu */}
-            <div className="space-y-2">
+            <div className={`space-y-2 ${fontReg.className}`}>
               <p className="text-gray-400 font-medium">Menu</p>
               <ul className="space-y-1">
                 <li>HOME</li>
@@ -46,7 +57,7 @@ const Footer = () => {
             </div>
 
             {/* Social */}
-            <div className="space-y-2">
+            <div className={`space-y-2 ${fontReg.className}`}>
               <p className="text-gray-400 font-medium">Social</p>
               <ul className="space-y-1">
                 <li>TWITTER</li>
@@ -60,7 +71,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Bottom */}
-      <div className="mt-16 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+      <div className={`mt-16 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4 ${fontReg.className}`}>
         <span className="font-bold text-white">BESNIK</span>
         <span>© devlop.me 2022</span>
         <span>PRIVACY - TERMS</span>

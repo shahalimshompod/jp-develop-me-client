@@ -79,7 +79,7 @@ const cards = [
   },
 ];
 
-const Slider = () => {
+const Slider = ({fontReg, fontBold}) => {
   const sliderRef = useRef();
 
   const scroll = (direction) => {
@@ -114,7 +114,7 @@ const Slider = () => {
         ref={sliderRef}
         className="flex gap-3 overflow-x-auto scroll-smooth scrollbar-hide py-14"
       >
-        {cards.map((card, idx) => <SliderCard key={idx} data={card}/>)}
+        {cards.map((card, idx) => <SliderCard fontReg={fontReg} fontBold={fontBold} key={idx} data={card}/>)}
       </div>
     </div>
   );

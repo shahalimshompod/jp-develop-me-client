@@ -2,7 +2,7 @@ import React from "react";
 import WorkProcessCard from "../cards/WorkProcessCard";
 import SectionHeader from "../sectionHeaders/SectionHeader";
 
-const WorkProcess = () => {
+const WorkProcess = ({fontReg, fontBold}) => {
   const steps = [
     {
       title: "Discovery",
@@ -29,9 +29,13 @@ const WorkProcess = () => {
   return (
     <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-14 py-12 md:py-16 lg:py-20 bg-[#141414] rounded-2xl lg:rounded-3xl">
       {/* Header Section */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center mb-8 md:mb-10 gap-6 lg:gap-12 xl:gap-72">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center mb-8 md:mb-10 gap-6 lg:gap-12 xl:gap-44">
+
+        {/* section header */}
         <SectionHeader name={"work process"}>Work Process</SectionHeader>
-        <h1 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+
+        {/* section heading */}
+        <h1 className={`font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl ${fontBold.className}`}>
           My Work Process
         </h1>
       </div>
@@ -39,7 +43,7 @@ const WorkProcess = () => {
       {/* Process Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
         {steps.map((step, index) => (
-          <WorkProcessCard data={step} key={index} />
+          <WorkProcessCard fontReg={fontReg} fontBold={fontBold} data={step} key={index} />
         ))}
       </div>
     </div>
